@@ -1,0 +1,6 @@
+<ul>
+  <% @locations.each do |link|%>
+	<li><a href="/<%=link.location_name%>"><%=link.short%></a></li><br>
+	Times clicked: <%=link.click_count%>
+  <% end %>
+</ul>
