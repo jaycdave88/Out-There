@@ -10,9 +10,10 @@ get '/' do
 	end
 end
 
-get '/user/new' do
+get '/user/sign' do
 	erb :sign_up
 end
+# registration change tom.
 
 post '/user/new' do 
 	User.create(params[:user])
@@ -26,4 +27,6 @@ post '/user/login' do
 		end
 	redirect '/'
 end
+
+
 
