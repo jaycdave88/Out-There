@@ -111,60 +111,66 @@ google.maps.event.addDomListener(window, 'load', initialize);
 		var access_token = "271040506.73a0892.1377628b149643e4af2cc615f424fbdf";
 
 
-
-
 		$(document).ready(function(){
+
+			// grab my new list and then call a clear on it (.empty)
 			$('.button').click(function getPhotos(){
 				var mediaEndPoint = ("https://api.instagram.com/v1/media/search?lat=" + location_lat + "&lng=" + location_long + "&access_token=" + access_token);
-				console.log(mediaEndPoint)
-				var invocation = new XMLHttpRequest();
+					// console.log(mediaEndPoint)
 
-				if (invocation){
-					invocation.open('GET',mediaEndPoint,true);
-					invocation.withCredentials = true;
-					invocation.onreadystatechange = handler;
-					invocation.send();
-					dataType: 'jsonp';
+				$.getJSON( mediaEndPoint, function( json_result ) {
+					// console.log(data)
 
+					// var instaLink = data.data[0].link
+					// console.log("I Am the InstaLink " + instaLink)
+					// returns the insagram link
 
-				}
-				function handler(evtXHR){
-					if (invocation.readyState == 4)
-					{
-						if (invocation.status == 200)
-						{
-							var response = invocation.responseXML;
-							// var invocationHistory = response.getElementsByTagName('invocationHistory').item(0).firstChild.data;
-							// invocationHistoryText = document.createTextNode(invocationHistory);
-							// var textDiv = document.getElementById("textDiv");
-							// textDiv.appendChild(invocationHistoryText);
-							alert("The Ajax call is working!")
+					var items = json_result["data"];
+					var container = []
+					$.each( items, function(  ) {
 
-						}
-						else
-							alert("Invocation Errors Occured");
-					}
-					else
-						dump("currently the application is at" + invocation.readyState);
+						var val = this["images"]["standard_resolution"]["url"]
+
+						container.push( "<img src=" + val + ">" );
+					});
+
+					$( "<ul/>", {
+						"class": "my-new-list",
+						html: container.join( "" )
+					}).appendTo( "body" );
+				});
 
 
+				// var invocation = new XMLHttpRequest();
+
+				// if (invocation){
+				// 	dataType: 'jsonp';
+				// 	invocation.open('GET',mediaEndPoint,true);
+				// 	invocation.withCredentials = true;
+				// 	invocation.onreadystatechange = handler;
+				// 	invocation.send();
 
 
+				// }
+				// function handler(evtXHR){
+				// 	if (invocation.readyState == 4)
+				// 	{
+				// 		if (invocation.status == 200)
+				// 		{
+				// 			var response = invocation.responseXML;
 
+				// 			alert("The Ajax call is working!");
+				// 		}
+				// 		else
+				// 			alert("Invocation Errors Occured");
+				// 	}
 
-				};
+				// };
 
 			});
 });
 
 </script>
-
-
-
-
-
-
-
 
 
 </head>
@@ -180,9 +186,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
 		Get Photos
 	</div>
 
-
-<!--     <a href="https://api.instagram.com/oauth/authorize/?client_id=73a0892e379b495fb2d0d21ad092cbc4&redirect_uri=http://localhost:9393/
-	&response_type=code">Log Into Instagram</a> -->
 
 </body>
 </html>
