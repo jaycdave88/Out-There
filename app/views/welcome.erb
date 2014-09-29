@@ -1,4 +1,7 @@
-<h1>WELCOME</h1>
+
+<div class ="welcome_header">
+	<h1>WELCOME</h1>
+</div>
 
 <!DOCTYPE html>
 <html>
@@ -8,9 +11,10 @@
 	<style>
 	html, body, #map-canvas {
 		height: 300px;
-		width: 100%;
-		margin: 0px;
-		padding: 0px
+		width: 90%;
+		margin: 1% 0% 0% 5%;
+		padding: 0px;
+		border-radius:25px;
 	}
 	#panel {
 		position: absolute;
@@ -27,74 +31,74 @@
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script>
 
-var map;
-var markers = [];
-var location_lat = false;
-var location_long = false;
+	var map;
+	var markers = [];
+	var location_lat = false;
+	var location_long = false;
 
-function initialize() {
-	var haightAshbury = new google.maps.LatLng(37.7845732, -122.39744000000002);
-	var mapOptions = {
-		zoom: 12,
-		center: haightAshbury,
-		mapTypeId: google.maps.MapTypeId.TERRAIN
-	};
-	map = new google.maps.Map(document.getElementById('map-canvas'),
-	                          mapOptions);
+	function initialize() {
+		var haightAshbury = new google.maps.LatLng(37.7845732, -122.39744000000002);
+		var mapOptions = {
+			zoom: 12,
+			center: haightAshbury,
+			mapTypeId: google.maps.MapTypeId.TERRAIN
+		};
+		map = new google.maps.Map(document.getElementById('map-canvas'),
+		                          mapOptions);
 
-  google.maps.event.addListener(map, 'click', function(event) {
-  	addMarker(event.latLng);
-  });
-
-
-  addMarker(haightAshbury);
-}
-
-function addMarker(location) {
-	var marker = new google.maps.Marker({
-		position: location,
-		map: map,
-    draggable:true 
-  });
-	$.ajax({
-		url: "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + marker.position.k + ","  + marker.position.B,
-		type: 'get'
-	})
-	.done(function(response) {
-		var arrayLength = response.results[1].address_components.length;
-
-		location_lat = response.results[1].geometry.location.lat
-		location_long = response.results[1].geometry.location.lng
-	})
-	markers.push(marker);
-}
+		google.maps.event.addListener(map, 'click', function(event) {
+			addMarker(event.latLng);
+		});
 
 
-function setAllMap(map) {
-	for (var i = 0; i < markers.length; i++) {
-		markers[i].setMap(map);
+		addMarker(haightAshbury);
 	}
-}
 
-function clearMarkers() {
-	setAllMap(null);
-}
+	function addMarker(location) {
+		var marker = new google.maps.Marker({
+			position: location,
+			map: map,
+			draggable:true 
+		});
+		$.ajax({
+			url: "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + marker.position.k + ","  + marker.position.B,
+			type: 'get'
+		})
+		.done(function(response) {
+			var arrayLength = response.results[1].address_components.length;
+
+			location_lat = response.results[1].geometry.location.lat
+			location_long = response.results[1].geometry.location.lng
+		})
+		markers.push(marker);
+	}
 
 
-function showMarkers() {
-	setAllMap(map);
-}
+	function setAllMap(map) {
+		for (var i = 0; i < markers.length; i++) {
+			markers[i].setMap(map);
+		}
+	}
 
-function deleteMarkers() {
-	clearMarkers();
-	markers = [];
-}
-google.maps.event.addDomListener(window, 'load', initialize);
-
-		var access_token = "271040506.73a0892.1377628b149643e4af2cc615f424fbdf";
+	function clearMarkers() {
+		setAllMap(null);
+	}
 
 
-		$(document).ready(function(){
+	function showMarkers() {
+		setAllMap(map);
+	}
+
+	function deleteMarkers() {
+		clearMarkers();
+		markers = [];
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+
+	var access_token = "271040506.73a0892.1377628b149643e4af2cc615f424fbdf";
+
+
+	$(document).ready(function(){
 
 			// grab my new list and then call a clear on it (.empty)
 			$('.button').click(function getPhotos(){
@@ -124,24 +128,24 @@ google.maps.event.addDomListener(window, 'load', initialize);
 			});
 		});
 
-		</script>
+	</script>
 
 
-	</head>
-	<body>
-		<div id="panel">
-			<input onclick="clearMarkers();" type=button value="Hide Markers">
-			<input onclick="showMarkers();" type=button value="Show All Markers">
-			<input onclick="deleteMarkers();" type=button value="Delete Markers">
-		</div>
-		<div id="map-canvas"></div>
-		<!-- <p>Click on the map to add markers.</p> -->
-		<div class="button">
-			Get Photos
-		</div>
-		
+</head>
+<body>
+	<div id="panel">
+		<input onclick="clearMarkers();" type=button value="Hide Markers">
+		<input onclick="showMarkers();" type=button value="Show All Markers">
+		<input onclick="deleteMarkers();" type=button value="Delete Markers">
+	</div>
+	<div id="map-canvas"></div>
+	<!-- <p>Click on the map to add markers.</p> -->
+	<div class="button">
+		Get Photos
+	</div>
 
 
 
-	</body>
-	</html>
+
+</body>
+</html>
