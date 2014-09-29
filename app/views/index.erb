@@ -1,9 +1,48 @@
-<h1>Welcome to Traveler</h1>
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+</body>
+<div class="welcome">
+	<h1>Welcome to Out-There</h1>
+</div>
+<div class="login_box">
+	<form action ='/user/login' method='post'>
+		<input type ='text' name ='email' placeholder = 'Email Address'><br>
+		<input type ='password' name = 'password' placeholder = 'Password'><br>
+		<div class="login_button"><input type="submit" value="Login" class="login" /></div>
+	</form><br>
+</div>
+<div class="register_link">
+	<a href="/user/sign">Register</a><br>
+</div>
 
-<form action ='/user/login' method='post'>
-	<input type ='text' name ='email' placeholder = 'Email Address'><br>
-	<input type ='password' name = 'password' placeholder = 'Password'><br>
-	<input type ='submit' value ='Login'>
-</form><br>
+<div id="fb-root"></div>
 
-<a href="/user/sign">Register</a><br>
+
+
+
+<div class="info">
+	<head>
+		<h3>About</h3>
+	</head>
+	<body>
+		<p1>
+			Ever wonder what the else is out there?
+		</p1>
+		<p>
+			With <id>Out-There</id> You Can Travel The World, and see what people are taking pictures of around the world.
+		</p>
+		<p3>Introducing: <id>Out-There</p3></id>
+	</body>
+</div>
+
+<footer>
+<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
+</footer>
+

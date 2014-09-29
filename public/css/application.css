@@ -33,5 +33,120 @@
 	border-top-color: #1b435e;
 	background: #1b435e;
 }
+/*===========================================================*/
+/*===========================================================*/
+.welcome{
+	background-color: #336699;
+	padding: 10px;
+	text-align: center;
+	color:white;
+	margin: 0 10% 0 10%;
+	border: 2px solid;
+	border-radius: 25px;
+}
+.login_box{
+	
+	text-align: left;
+	margin: 7% 0 0 25%;
+	float: left;
+}
+.info{
+	height:220px;
+	width:220px;
+	border:5px solid #484B4F;
+	font:16px/26px Georgia, Garamond, Serif;
+	overflow:auto;
+	float: right;
+	margin: -11%  25% ;
+	font-family: helvetica;
+	font-size: 20px
+}
+.info p1{
+	
+	font-weight: bold;
+}
+.info h3{
+	text-align: center;
+	text-decoration: underline;
+}
 
+.info id{
+	font-weight: bold;
+	text-decoration: underline;
+	white-space: nowrap;
+	text-align: center;
+}
+.info id:hover{
+	color:#FF0000;
+	font-style: italic;
+}
+	
+}
+html{
+	background-color: #FFFFFF
+}
+/*===========================================================*/
+/*===========================================================*/
 
+.wrap {
+	background-color:#f6f6f6;
+	width:450px;
+	margin: 0 auto;
+	padding:10px;
+	height:260px;
+
+	p {
+		font-family:Helvetica, sans-serif;
+		text-align:center;
+	}
+}
+
+.login_button {
+	background:url('https://dh3vbjnk0bnfa.cloudfront.net/static/centralauth/images/btn-login.png') no-repeat 5px 5px #484B4F;
+	width: 100px;
+	cursor:pointer;
+	border-radius:50px;
+	padding:10px 20px 10px 0;
+	color:#336699;
+	font-size:14px;
+	text-align:left;
+	text-indent:40px;
+	display:block;
+	margin:0 auto;
+
+	/* Animations: */
+	-webkit-transition-timing-function: ease-in-out;
+	-webkit-transition-duration: .4s;
+	-webkit-transition-property: all;
+
+	-moz-transition-timing-function: ease-in-out;
+	-moz-transition-duration: .4s;
+	-moz-transition-property: all;
+}
+
+.login_button:hover {
+	background-image: url('shot');
+	background-position: 65px 5px;
+	text-indent: 20px;  
+}
+
+.twat {
+	float:right;
+	font-family:Helvetica, sans-serif;
+}
+footer{
+	background-color: #484B4F;
+	padding: 10px;
+	margin: 21% 10%;
+	border-radius: 25px;
+	color: #484B4F;
+	text-align: center;
+}
+
+.register_link{
+	margin: 15% 64% 0% 31%
+}
+
+#login {
+  text-align: center;
+}
