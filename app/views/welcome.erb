@@ -102,26 +102,32 @@
 
 			// grab my new list and then call a clear on it (.empty)
 			$('.button').click(function getPhotos(){
-				var mediaEndPoint = ("https://api.instagram.com/v1/media/search?lat=" + location_lat + "&lng=" + location_long + "&access_token=" + access_token);
+				var mediaEndPoint = ("/instagram/:id/lat/" + location_lat + "/long/" + location_long + "/access_token/" + access_token);
 
 				$(".my-new-list").empty();
-				
+				// look up headers (copy header name from image -josh) and change your getjson to ajax 
 
-				$.getJSON( mediaEndPoint, function( json_result ) {
+				$.ajax({ 
+					url: mediaEndPoint,
+					type: 'get',
+					dataType: 'json',
+			
+					success: function (json_result) {
 
-					var items = json_result["data"];
-					var container = []
-					$.each( items, function(  ) {
+						var items = json_result["data"];
+						var container = []
+						$.each( items, function(  ) {
 
-						var val = this["images"]["standard_resolution"]["url"]
+							var val = this["images"]["standard_resolution"]["url"]
 
-						container.push( "<img src=" + val + ">" );
-					});
+							container.push( "<img src=" + val + ">" );
+						});
 
-					$( "<ul/>", {
-						"class": "my-new-list",
-						html: container.join( "" )
-					}).appendTo( "body" );
+						$( "<ul/>", {
+							"class": "my-new-list",
+							html: container.join( "" )
+						}).appendTo( "body" );
+					}
 				});
 
 
@@ -143,9 +149,6 @@
 	<div class="button">
 		Get Photos
 	</div>
-
-
-
 
 </body>
 </html>
