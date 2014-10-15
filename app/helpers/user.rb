@@ -1,3 +1,4 @@
+# sick helpers!
 helpers do 
 
 	def current_user

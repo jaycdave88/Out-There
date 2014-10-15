@@ -1,3 +1,5 @@
+# may want to consider two different routes for 'welcome' vs. 'index',
+#  since presumably they look/function pretty differently
 get '/' do
 	if logged_in?
 		puts "here with current user: #{current_user}"
@@ -10,11 +12,13 @@ get '/' do
 	end
 end
 
+# weird route... make the name more semantic
 get '/user/sign' do
 	erb :sign_up
 end
 # registration change tom.
 
+# nice redirects!
 post '/user/new' do 
 	User.create(params[:user])
 	redirect '/'
