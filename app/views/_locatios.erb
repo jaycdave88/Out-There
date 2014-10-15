@@ -1,5 +1,9 @@
+<!-- fix typo in filename -->
+
 <ul>
   <% @locations.each do |link|%>
+    <!-- cannot have any element, including <br>, outside of a list item within
+        a list -->
 	<li><a href="/<%=link.location_name%>"><%=link.short%></a></li><br>
 	Times clicked: <%=link.click_count%>
   <% end %>

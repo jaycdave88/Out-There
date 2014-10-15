@@ -1,3 +1,4 @@
+<!-- already have <body> tag in layout file -->
 <body>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -13,7 +14,10 @@
 </div>
 <div class="login_box">
 	<form action ='/user/login' method='post'>
+        <!-- add labels for form inputs -->
+        <!-- placeholders not supported in older browsers -->
 		<input type ='text' name ='email' placeholder = 'Email Address'><br>
+        <!-- password inputs not supported in older browsers -->
 		<input type ='password' name = 'password' placeholder = 'Password'><br>
 		<div class="login_button"><input type="submit" value="Login" class="login" /></div>
 	</form><br>
@@ -22,22 +26,30 @@
 	<a href="/user/sign">Register</a><br>
 </div>
 
+<!-- shouldn't need 2 of these on a page -->
 <div id="fb-root"></div>
 
 
 
 
 <div class="info">
+    <!-- already have a <head> element in the layout -->
+    <!-- <head> element should never contain presentational tags; you might be looking
+        for <header>? -->
 	<head>
 		<h3>About</h3>
 	</head>
+    <!-- same comment as above -->
 	<body>
+        <!-- not a valid html tag -->
 		<p1>
 			Ever wonder what the else is out there?
 		</p1>
 		<p>
+            <!-- <id> not a valid html tag -->
 			With <id>Out-There</id> You Can Travel The World, and see what people are taking pictures of around the world.
 		</p>
+        <!-- p3 not a valid html tag -->
 		<p3>Introducing: <id>Out-There</p3></id>
 	</body>
 </div>
