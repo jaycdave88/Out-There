@@ -1,26 +1,31 @@
-
+/* holy shit. 23 rules in one style. Jay, please no. */
 .button {
 	margin:0 auto;
 	width: 10%; 
 	border-top: 1px solid #96d1f8;
 	background: #65a9d7;
+	/* gradients not supported on older browsers */
 	background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
 	background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
 	background: -moz-linear-gradient(top, #3e779d, #65a9d7);
 	background: -ms-linear-gradient(top, #3e779d, #65a9d7);
 	background: -o-linear-gradient(top, #3e779d, #65a9d7);
 	padding: 10.5px 21px;
+	/* border-radius not supported on older browsers */
 	-webkit-border-radius: 40px;
 	-moz-border-radius: 40px;
 	border-radius: 40px;
+	/* box-shadow not supported on older browsers */
 	-webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
 	-moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
 	box-shadow: rgba(0,0,0,1) 0 1px 0;
+	/* text-shadow not supported on older browsers */
 	text-shadow: rgba(0,0,0,.4) 0 1px 0;
 	color: white;
 	font-size: 18px;
 	font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
 	text-decoration: none;
+	/* probably not doing what you think it's doing */
 	vertical-align: middle;
 	text-align: center;
 }
@@ -40,7 +45,9 @@
 	padding: 10px;
 	text-align: center;
 	color:white;
+	/* can use shorthand */
 	margin: 0 10% 0 10%;
+	/* missing color? */
 	border: 2px solid;
 	border-radius: 25px;
 }
@@ -54,13 +61,16 @@
 	height:220px;
 	width:220px;
 	border:5px solid #484B4F;
+	/* use ems for font sizes */
 	font:16px/26px Georgia, Garamond, Serif;
 	overflow:auto;
 	float: right;
 	margin: -11%  25% ;
+	/* lots of conflicting font declarations */
 	font-family: helvetica;
 	font-size: 20px
 }
+/* p1 not a valid tag */
 .info p1{
 	
 	font-weight: bold;
@@ -69,7 +79,7 @@
 	text-align: center;
 	text-decoration: underline;
 }
-
+/* id not a valid tag */
 .info id{
 	font-weight: bold;
 	text-decoration: underline;
@@ -82,6 +92,7 @@
 }
 	
 }
+/* don't set styles on html tag */
 html{
 	background-color: #FFFFFF
 }
@@ -95,6 +106,7 @@ html{
 	padding:10px;
 	height:260px;
 
+	/* can't nest styles like this; invalid css */
 	p {
 		font-family:Helvetica, sans-serif;
 		text-align:center;
@@ -129,7 +141,7 @@ html{
 	background-position: 65px 5px;
 	text-indent: 20px;  
 }
-
+/* lol */
 .twat {
 	float:right;
 	font-family:Helvetica, sans-serif;
